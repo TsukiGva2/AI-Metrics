@@ -383,5 +383,15 @@
                 "591b83369756af95"
             ]
         ]
+    },
+    {
+        "id": "cd6ee8c59b8d07a8",
+        "type": "comment",
+        "z": "bdd14ed9aa832926",
+        "name": "CSV: Input schema",
+        "info": "## Format\n\npipe (`|`) separated list of AI usage metrics \n\n- **Session_ID** - `col1`\n- **Friction_Category** - `col2`\n- **Target_File_Or_Module** - `col3`\n- **Effort_Percentage** - `col4`\n- **Diagnosis_Sentence** - `col5`\n- **Tokens_In** - `col6`\n- **Tokens_Out** - `col7`\n- **Tokens_Total** - `col8`\n- **Cost_Total** - `col9`\n- **Model_Provider** - `col10`\n- **Model_ID** - `col11`\n\n## Example row (pretend it's one line)\n\n```\n019e9...e8881 |\nContext Fragmentation |\ncontrollers/checkout/ |\n85 |\nBuilding a complete picture of\nthe checkout handler required reading\n10 files across 5 directories |\n30226 |\n2476 |\n152638 |\n0.0052607408 |\ndeepseek |\ndeepseek-v4-flash\n```\n",
+        "x": 1000,
+        "y": 440,
+        "wires": []
     }
 ]
