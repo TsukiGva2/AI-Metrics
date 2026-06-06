@@ -1,10 +1,387 @@
 [
     {
-        "id": "3e9b72680075eebc",
+        "id": "bdd14ed9aa832926",
         "type": "tab",
-        "label": "Cadastro",
+        "label": "Metrics",
         "disabled": false,
         "info": "",
         "env": []
+    },
+    {
+        "id": "0894458713553377",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "bbaa9d4adedfe0a7",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#ffffff",
+            "primary": "#0094CE",
+            "bgPage": "#eeeeee",
+            "groupBg": "#ffffff",
+            "groupOutline": "#cccccc"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "aad72dc5f2210166",
+        "type": "ui-page",
+        "name": "Page 1",
+        "ui": "0894458713553377",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "bbaa9d4adedfe0a7",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": 0,
+                "cols": 3
+            },
+            {
+                "name": "Tablet",
+                "px": 576,
+                "cols": 6
+            },
+            {
+                "name": "Small Desktop",
+                "px": 768,
+                "cols": 9
+            },
+            {
+                "name": "Desktop",
+                "px": 1024,
+                "cols": 12
+            }
+        ],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "f8e746e7105de1c1",
+        "type": "ui-group",
+        "name": "Group 1",
+        "page": "aad72dc5f2210166",
+        "width": 6,
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": true,
+        "disabled": false,
+        "groupType": "default"
+    },
+    {
+        "id": "6c244ed2db0e1af9",
+        "type": "ui-link",
+        "name": "Link 1",
+        "ui": "0894458713553377",
+        "path": "/",
+        "icon": "home",
+        "order": 2,
+        "visible": true,
+        "disabled": false
+    },
+    {
+        "id": "c818c0b3ae4fb231",
+        "type": "watch",
+        "z": "bdd14ed9aa832926",
+        "name": "watch mapfile",
+        "files": "/home/rodrigo/Documents/pvapi/.pi/MAP.csv",
+        "recursive": false,
+        "x": 620,
+        "y": 520,
+        "wires": [
+            [
+                "1b0db7fe25854f49"
+            ]
+        ]
+    },
+    {
+        "id": "1b0db7fe25854f49",
+        "type": "file in",
+        "z": "bdd14ed9aa832926",
+        "name": "Read mapfile",
+        "filename": "payload",
+        "filenameType": "msg",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "utf8",
+        "allProps": false,
+        "x": 820,
+        "y": 520,
+        "wires": [
+            [
+                "b17c1650379ce924"
+            ]
+        ]
+    },
+    {
+        "id": "9f2740297a4b1f4c",
+        "type": "debug",
+        "z": "bdd14ed9aa832926",
+        "name": "log csv",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "b17c1650379ce924",
+        "type": "csv",
+        "z": "bdd14ed9aa832926",
+        "name": "",
+        "spec": "rfc",
+        "sep": "|",
+        "hdrin": "",
+        "hdrout": "none",
+        "multi": "one",
+        "ret": "\\n",
+        "temp": "",
+        "skip": "1",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 990,
+        "y": 520,
+        "wires": [
+            [
+                "9f2740297a4b1f4c",
+                "73f3bf2d91d3c9b4"
+            ]
+        ]
+    },
+    {
+        "id": "f19ed8b58a2ad559",
+        "type": "inject",
+        "z": "bdd14ed9aa832926",
+        "name": "Inject manual",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "/home/rodrigo/Documents/pvapi/.pi/MAP.csv",
+        "payloadType": "str",
+        "x": 620,
+        "y": 480,
+        "wires": [
+            [
+                "1b0db7fe25854f49"
+            ]
+        ]
+    },
+    {
+        "id": "f55aaad24ecba975",
+        "type": "ui-table",
+        "z": "bdd14ed9aa832926",
+        "group": "f8e746e7105de1c1",
+        "name": "",
+        "label": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "maxrows": 0,
+        "passthru": false,
+        "autocols": false,
+        "showSearch": true,
+        "deselect": true,
+        "selectionType": "none",
+        "columns": [
+            {
+                "title": "Issue Type",
+                "key": "col2",
+                "keyType": "key",
+                "type": "text",
+                "width": "",
+                "align": "start"
+            },
+            {
+                "title": "File / Path",
+                "key": "col3",
+                "keyType": "key",
+                "type": "text",
+                "width": "",
+                "align": "start"
+            },
+            {
+                "title": "Estimated Effort",
+                "key": "col4",
+                "keyType": "key",
+                "type": "text",
+                "width": "",
+                "align": "start"
+            },
+            {
+                "title": "Tokens In",
+                "key": "col6",
+                "keyType": "key",
+                "type": "text",
+                "width": "",
+                "align": "start"
+            },
+            {
+                "title": "Tokens Out",
+                "key": "col7",
+                "keyType": "key",
+                "type": "text",
+                "width": "",
+                "align": "start"
+            },
+            {
+                "title": "Total Tokens + Cache Reads",
+                "key": "col8",
+                "keyType": "key",
+                "type": "text",
+                "width": "",
+                "align": "start"
+            },
+            {
+                "title": "Estimated Cost (Dollars)",
+                "key": "col9",
+                "keyType": "key",
+                "type": "text",
+                "width": "",
+                "align": "start"
+            },
+            {
+                "title": "Model",
+                "key": "col11",
+                "keyType": "key",
+                "type": "text",
+                "width": "",
+                "align": "start"
+            }
+        ],
+        "mobileBreakpoint": "sm",
+        "mobileBreakpointType": "defaults",
+        "action": "replace",
+        "className": "",
+        "x": 1410,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "73f3bf2d91d3c9b4",
+        "type": "function",
+        "z": "bdd14ed9aa832926",
+        "name": "Trim fields",
+        "func": "\nlet data = msg.payload;\n\nObject.keys(data).forEach((k) => {\n    let v = data[k];\n    if (v.trim) data[k] = v.trim();\n});\n\nmsg.payload = data;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1170,
+        "y": 520,
+        "wires": [
+            [
+                "5041898336e2a8dc",
+                "1e86fc94b6f93832"
+            ]
+        ]
+    },
+    {
+        "id": "591b83369756af95",
+        "type": "join",
+        "z": "bdd14ed9aa832926",
+        "name": "",
+        "mode": "auto",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "useparts": false,
+        "accumulate": "false",
+        "timeout": "",
+        "count": "",
+        "reduceRight": false,
+        "x": 1290,
+        "y": 600,
+        "wires": [
+            [
+                "f55aaad24ecba975"
+            ]
+        ]
+    },
+    {
+        "id": "5041898336e2a8dc",
+        "type": "debug",
+        "z": "bdd14ed9aa832926",
+        "name": "log trim",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1160,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "1e86fc94b6f93832",
+        "type": "function",
+        "z": "bdd14ed9aa832926",
+        "name": "Calculate %s",
+        "func": "\nlet data = msg.payload;\n\nlet p = data.col4 / 100;\n\nfunction key_pct(k, places) {\n    data[k] = (data[k] * p).toFixed(places);\n}\n\nkey_pct(\"col6\", 0);\nkey_pct(\"col7\", 0);\nkey_pct(\"col8\", 0);\nkey_pct(\"col9\", 5);\n\nmsg.payload = data;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1180,
+        "y": 560,
+        "wires": [
+            [
+                "591b83369756af95"
+            ]
+        ]
     }
 ]
