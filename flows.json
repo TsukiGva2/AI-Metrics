@@ -380,7 +380,8 @@
         "y": 560,
         "wires": [
             [
-                "591b83369756af95"
+                "591b83369756af95",
+                "089a747e68f38414"
             ]
         ]
     },
@@ -393,5 +394,106 @@
         "x": 1000,
         "y": 440,
         "wires": []
+    },
+    {
+        "id": "1dcbb80757e4b2fb",
+        "type": "ui-gauge",
+        "z": "bdd14ed9aa832926",
+        "name": "Eff. Meter",
+        "group": "f8e746e7105de1c1",
+        "order": 0,
+        "value": "payload",
+        "valueType": "msg",
+        "width": 3,
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "rounded",
+        "title": "Context efficiency (Tokens IN / OUT)",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "units",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "1",
+                "color": "#5cd65c",
+                "text": "",
+                "textType": "value"
+            },
+            {
+                "from": "8",
+                "color": "#ffc800",
+                "text": "",
+                "textType": "value"
+            },
+            {
+                "from": "15",
+                "color": "#ea5353",
+                "text": "",
+                "textType": "value"
+            }
+        ],
+        "min": "1",
+        "max": "30",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 1370,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bbb8bbb3d4a3df60",
+        "type": "debug",
+        "z": "bdd14ed9aa832926",
+        "name": "log ratio",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1360,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "089a747e68f38414",
+        "type": "join",
+        "z": "bdd14ed9aa832926",
+        "name": "I/O ratio",
+        "mode": "reduce",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "useparts": false,
+        "accumulate": true,
+        "timeout": "",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "$A + ($number(payload.col6) / $number(payload.col7))",
+        "reduceInit": "0",
+        "reduceInitType": "num",
+        "reduceFixup": "$round($A/$N, 2)",
+        "x": 1360,
+        "y": 520,
+        "wires": [
+            [
+                "bbb8bbb3d4a3df60",
+                "1dcbb80757e4b2fb"
+            ]
+        ]
     }
 ]
