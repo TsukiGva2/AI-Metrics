@@ -405,7 +405,7 @@
         "id": "2488222afe37a0d1",
         "type": "join",
         "z": "a9a6010b932de479",
-        "name": "",
+        "name": "Agg. Effort",
         "mode": "reduce",
         "build": "object",
         "property": "payload",
@@ -422,7 +422,7 @@
         "reduceInit": "{}",
         "reduceInitType": "json",
         "reduceFixup": "$each($A, function($v, $k) {\t    { \"scope\": $k, \"effort\": $v.t / $v.c }\t})",
-        "x": 650,
+        "x": 670,
         "y": 340,
         "wires": [
             [
@@ -496,7 +496,7 @@
         "height": 8,
         "className": "",
         "interpolation": "linear",
-        "x": 820,
+        "x": 860,
         "y": 340,
         "wires": [
             []
