@@ -8,6 +8,32 @@
         "env": []
     },
     {
+        "id": "a9a6010b932de479",
+        "type": "subflow",
+        "name": "Process map.csv",
+        "info": "",
+        "category": "",
+        "in": [
+            {
+                "x": 290,
+                "y": 260,
+                "wires": [
+                    {
+                        "id": "73f3bf2d91d3c9b4"
+                    }
+                ]
+            }
+        ],
+        "out": [],
+        "env": [],
+        "meta": {},
+        "color": "#C0C0C0",
+        "inputLabels": [
+            "Structured data"
+        ],
+        "icon": "font-awesome/fa-bar-chart"
+    },
+    {
         "id": "0894458713553377",
         "type": "ui-base",
         "name": "My Dashboard",
@@ -49,32 +75,32 @@
     {
         "id": "aad72dc5f2210166",
         "type": "ui-page",
-        "name": "Page 1",
+        "name": "AI Metrics",
         "ui": "0894458713553377",
-        "path": "/page1",
+        "path": "/ai-metrics",
         "icon": "home",
         "layout": "grid",
         "theme": "bbaa9d4adedfe0a7",
         "breakpoints": [
             {
                 "name": "Default",
-                "px": 0,
-                "cols": 3
+                "px": "0",
+                "cols": "3"
             },
             {
                 "name": "Tablet",
-                "px": 576,
-                "cols": 6
+                "px": "576",
+                "cols": "6"
             },
             {
                 "name": "Small Desktop",
-                "px": 768,
-                "cols": 9
+                "px": "768",
+                "cols": "9"
             },
             {
                 "name": "Desktop",
-                "px": 1024,
-                "cols": 12
+                "px": "1024",
+                "cols": "12"
             }
         ],
         "order": 1,
@@ -85,136 +111,48 @@
     {
         "id": "f8e746e7105de1c1",
         "type": "ui-group",
-        "name": "Group 1",
+        "name": "General",
         "page": "aad72dc5f2210166",
         "width": 6,
         "height": 1,
         "order": 1,
         "showTitle": true,
         "className": "",
-        "visible": true,
-        "disabled": false,
+        "visible": "true",
+        "disabled": "false",
         "groupType": "default"
     },
     {
         "id": "6c244ed2db0e1af9",
         "type": "ui-link",
-        "name": "Link 1",
+        "name": "Stale link",
         "ui": "0894458713553377",
         "path": "/",
         "icon": "home",
         "order": 2,
-        "visible": true,
+        "visible": "false",
         "disabled": false
     },
     {
-        "id": "c818c0b3ae4fb231",
-        "type": "watch",
-        "z": "bdd14ed9aa832926",
-        "name": "watch mapfile",
-        "files": "/home/rodrigo/Documents/pvapi/.pi/MAP.csv",
-        "recursive": false,
-        "x": 620,
-        "y": 520,
-        "wires": [
-            [
-                "1b0db7fe25854f49"
-            ]
-        ]
-    },
-    {
-        "id": "1b0db7fe25854f49",
-        "type": "file in",
-        "z": "bdd14ed9aa832926",
-        "name": "Read mapfile",
-        "filename": "payload",
-        "filenameType": "msg",
-        "format": "utf8",
-        "chunk": false,
-        "sendError": false,
-        "encoding": "utf8",
-        "allProps": false,
-        "x": 820,
-        "y": 520,
-        "wires": [
-            [
-                "b17c1650379ce924"
-            ]
-        ]
-    },
-    {
-        "id": "9f2740297a4b1f4c",
-        "type": "debug",
-        "z": "bdd14ed9aa832926",
-        "name": "log csv",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1000,
-        "y": 480,
-        "wires": []
-    },
-    {
-        "id": "b17c1650379ce924",
-        "type": "csv",
-        "z": "bdd14ed9aa832926",
-        "name": "",
-        "spec": "rfc",
-        "sep": "|",
-        "hdrin": "",
-        "hdrout": "none",
-        "multi": "one",
-        "ret": "\\n",
-        "temp": "",
-        "skip": "1",
-        "strings": true,
-        "include_empty_strings": "",
-        "include_null_values": "",
-        "x": 990,
-        "y": 520,
-        "wires": [
-            [
-                "9f2740297a4b1f4c",
-                "73f3bf2d91d3c9b4"
-            ]
-        ]
-    },
-    {
-        "id": "f19ed8b58a2ad559",
-        "type": "inject",
-        "z": "bdd14ed9aa832926",
-        "name": "Inject manual",
-        "props": [
-            {
-                "p": "payload"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "/home/rodrigo/Documents/pvapi/.pi/MAP.csv",
-        "payloadType": "str",
-        "x": 620,
-        "y": 480,
-        "wires": [
-            [
-                "1b0db7fe25854f49"
-            ]
-        ]
+        "id": "d078eeb9c190595d",
+        "type": "ui-group",
+        "name": "Scope info",
+        "page": "aad72dc5f2210166",
+        "width": 6,
+        "height": 1,
+        "order": 2,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default"
     },
     {
         "id": "f55aaad24ecba975",
         "type": "ui-table",
-        "z": "bdd14ed9aa832926",
+        "z": "a9a6010b932de479",
         "group": "f8e746e7105de1c1",
-        "name": "",
+        "name": "Usage data",
         "label": "",
         "order": 1,
         "width": 0,
@@ -228,15 +166,15 @@
         "columns": [
             {
                 "title": "Issue Type",
-                "key": "col2",
+                "key": "friction_category",
                 "keyType": "key",
                 "type": "text",
                 "width": "",
                 "align": "start"
             },
             {
-                "title": "File / Path",
-                "key": "col3",
+                "title": "Scope",
+                "key": "scope",
                 "keyType": "key",
                 "type": "text",
                 "width": "",
@@ -244,7 +182,7 @@
             },
             {
                 "title": "Estimated Effort",
-                "key": "col4",
+                "key": "effort_pct",
                 "keyType": "key",
                 "type": "text",
                 "width": "",
@@ -252,7 +190,7 @@
             },
             {
                 "title": "Tokens In",
-                "key": "col6",
+                "key": "tokens_in",
                 "keyType": "key",
                 "type": "text",
                 "width": "",
@@ -260,7 +198,7 @@
             },
             {
                 "title": "Tokens Out",
-                "key": "col7",
+                "key": "tokens_out",
                 "keyType": "key",
                 "type": "text",
                 "width": "",
@@ -268,7 +206,7 @@
             },
             {
                 "title": "Total Tokens + Cache Reads",
-                "key": "col8",
+                "key": "tokens_total",
                 "keyType": "key",
                 "type": "text",
                 "width": "",
@@ -276,7 +214,7 @@
             },
             {
                 "title": "Estimated Cost (Dollars)",
-                "key": "col9",
+                "key": "cost_total",
                 "keyType": "key",
                 "type": "text",
                 "width": "",
@@ -284,7 +222,15 @@
             },
             {
                 "title": "Model",
-                "key": "col11",
+                "key": "model_id",
+                "keyType": "key",
+                "type": "text",
+                "width": "",
+                "align": "start"
+            },
+            {
+                "title": "Timestamp",
+                "key": "timestamp",
                 "keyType": "key",
                 "type": "text",
                 "width": "",
@@ -295,8 +241,8 @@
         "mobileBreakpointType": "defaults",
         "action": "replace",
         "className": "",
-        "x": 1410,
-        "y": 600,
+        "x": 830,
+        "y": 300,
         "wires": [
             []
         ]
@@ -304,7 +250,7 @@
     {
         "id": "73f3bf2d91d3c9b4",
         "type": "function",
-        "z": "bdd14ed9aa832926",
+        "z": "a9a6010b932de479",
         "name": "Trim fields",
         "func": "\nlet data = msg.payload;\n\nObject.keys(data).forEach((k) => {\n    let v = data[k];\n    if (v.trim) data[k] = v.trim();\n});\n\nmsg.payload = data;\n\nreturn msg;",
         "outputs": 1,
@@ -313,11 +259,10 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1170,
-        "y": 520,
+        "x": 470,
+        "y": 260,
         "wires": [
             [
-                "5041898336e2a8dc",
                 "1e86fc94b6f93832"
             ]
         ]
@@ -325,8 +270,8 @@
     {
         "id": "591b83369756af95",
         "type": "join",
-        "z": "bdd14ed9aa832926",
-        "name": "",
+        "z": "a9a6010b932de479",
+        "name": "Aggregate",
         "mode": "auto",
         "build": "object",
         "property": "payload",
@@ -335,12 +280,16 @@
         "joiner": "\\n",
         "joinerType": "str",
         "useparts": false,
-        "accumulate": "false",
+        "accumulate": true,
         "timeout": "",
         "count": "",
         "reduceRight": false,
-        "x": 1290,
-        "y": 600,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 670,
+        "y": 300,
         "wires": [
             [
                 "f55aaad24ecba975"
@@ -348,60 +297,34 @@
         ]
     },
     {
-        "id": "5041898336e2a8dc",
-        "type": "debug",
-        "z": "bdd14ed9aa832926",
-        "name": "log trim",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1160,
-        "y": 480,
-        "wires": []
-    },
-    {
         "id": "1e86fc94b6f93832",
         "type": "function",
-        "z": "bdd14ed9aa832926",
+        "z": "a9a6010b932de479",
         "name": "Calculate %s",
-        "func": "\nlet data = msg.payload;\n\nlet p = data.col4 / 100;\n\nfunction key_pct(k, places) {\n    data[k] = (data[k] * p).toFixed(places);\n}\n\nkey_pct(\"col6\", 0);\nkey_pct(\"col7\", 0);\nkey_pct(\"col8\", 0);\nkey_pct(\"col9\", 5);\n\nmsg.payload = data;\n\nreturn msg;",
+        "func": "\nlet data = msg.payload;\n\nlet p = data.effort_pct / 100;\n\nfunction key_pct(k, places) {\n    data[k] = (data[k] * p).toFixed(places);\n}\n\nkey_pct(\"tokens_in\", 0);\nkey_pct(\"tokens_out\", 0);\nkey_pct(\"tokens_total\", 0);\nkey_pct(\"cost_total\", 5);\n\nmsg.payload = data;\n\nreturn msg;",
         "outputs": 1,
         "timeout": 0,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 1180,
-        "y": 560,
+        "x": 480,
+        "y": 300,
         "wires": [
             [
+                "089a747e68f38414",
                 "591b83369756af95",
-                "089a747e68f38414"
+                "2488222afe37a0d1"
             ]
         ]
     },
     {
-        "id": "cd6ee8c59b8d07a8",
-        "type": "comment",
-        "z": "bdd14ed9aa832926",
-        "name": "CSV: Input schema",
-        "info": "## Format\n\npipe (`|`) separated list of AI usage metrics \n\n- **Session_ID** - `col1`\n- **Friction_Category** - `col2`\n- **Target_File_Or_Module** - `col3`\n- **Effort_Percentage** - `col4`\n- **Diagnosis_Sentence** - `col5`\n- **Tokens_In** - `col6`\n- **Tokens_Out** - `col7`\n- **Tokens_Total** - `col8`\n- **Cost_Total** - `col9`\n- **Model_Provider** - `col10`\n- **Model_ID** - `col11`\n\n## Example row (pretend it's one line)\n\n```\n019e9...e8881 |\nContext Fragmentation |\ncontrollers/checkout/ |\n85 |\nBuilding a complete picture of\nthe checkout handler required reading\n10 files across 5 directories |\n30226 |\n2476 |\n152638 |\n0.0052607408 |\ndeepseek |\ndeepseek-v4-flash\n```\n",
-        "x": 1000,
-        "y": 440,
-        "wires": []
-    },
-    {
         "id": "1dcbb80757e4b2fb",
         "type": "ui-gauge",
-        "z": "bdd14ed9aa832926",
+        "z": "a9a6010b932de479",
         "name": "Eff. Meter",
         "group": "f8e746e7105de1c1",
-        "order": 0,
+        "order": 2,
         "value": "payload",
         "valueType": "msg",
         "width": 3,
@@ -443,33 +366,16 @@
         "styleRounded": true,
         "styleGlow": false,
         "className": "",
-        "x": 1370,
-        "y": 440,
+        "x": 810,
+        "y": 260,
         "wires": [
             []
         ]
     },
     {
-        "id": "bbb8bbb3d4a3df60",
-        "type": "debug",
-        "z": "bdd14ed9aa832926",
-        "name": "log ratio",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1360,
-        "y": 480,
-        "wires": []
-    },
-    {
         "id": "089a747e68f38414",
         "type": "join",
-        "z": "bdd14ed9aa832926",
+        "z": "a9a6010b932de479",
         "name": "I/O ratio",
         "mode": "reduce",
         "build": "object",
@@ -483,16 +389,278 @@
         "timeout": "",
         "count": "",
         "reduceRight": false,
-        "reduceExp": "$A + ($number(payload.col6) / $number(payload.col7))",
+        "reduceExp": "$A + ($number(payload.tokens_in) / $number(payload.tokens_out))",
         "reduceInit": "0",
         "reduceInitType": "num",
         "reduceFixup": "$round($A/$N, 2)",
-        "x": 1360,
+        "x": 660,
+        "y": 260,
+        "wires": [
+            [
+                "1dcbb80757e4b2fb"
+            ]
+        ]
+    },
+    {
+        "id": "2488222afe37a0d1",
+        "type": "join",
+        "z": "a9a6010b932de479",
+        "name": "",
+        "mode": "reduce",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "useparts": false,
+        "accumulate": true,
+        "timeout": "",
+        "count": "",
+        "reduceRight": false,
+        "reduceExp": "(\t\t$scope  := payload.scope;\t\t$match  := $lookup($A, $scope);\t\t$effort := $number(payload.effort_pct);\t\t\t\t$merge([\t\t\t$A,\t\t\t{ $scope: $exists($match) ?\t\t\t\t{ \"t\": $match.t + $effort, \"c\": $match.c + 1 } :\t\t\t\t{ \"t\": $effort, \"c\": 1 }\t\t\t}\t\t])\t)",
+        "reduceInit": "{}",
+        "reduceInitType": "json",
+        "reduceFixup": "$each($A, function($v, $k) {\t    { \"scope\": $k, \"effort\": $v.t / $v.c }\t})",
+        "x": 650,
+        "y": 340,
+        "wires": [
+            [
+                "e2a9fa8fa8092b9c"
+            ]
+        ]
+    },
+    {
+        "id": "a485a10b6b176e73",
+        "type": "comment",
+        "z": "a9a6010b932de479",
+        "name": "CSV: Input schema",
+        "info": "## Format\n\nPipe (` | `) separated CSV with the following 12 columns:\n\n| # | Column Name       | Description                                      |\n|---|-------------------|--------------------------------------------------|\n| 1 | `session_id`      | UUID v7 identifying the session                  |\n| 2 | `friction_category` | One of `Context Fragmentation`, `State Brittleness`, `Missing Guardrails` |\n| 3 | `scope`           | Business domain or logical module (e.g. `Checkout`, `Checkout(tests)`) |\n| 4 | `effort_pct`      | Relative cognitive effort as an integer percentage |\n| 5 | `diagnosis`       | Free-text diagnosis sentence                     |\n| 6 | `tokens_in`       | Input tokens consumed in the session             |\n| 7 | `tokens_out`      | Output tokens consumed in the session            |\n| 8 | `tokens_total`    | Total tokens (input + output)                    |\n| 9 | `cost_total`      | Total cost in USD                                |\n| 10 | `model_provider`  | Provider name (e.g. `deepseek`, `anthropic`)     |\n| 11 | `model_id`        | Model identifier (e.g. `deepseek-v4-flash`)      |\n| 12 | `timestamp`       | ISO 8601 datetime with millisecond precision and `Z` suffix |\n\n## Example row\n\n```\n019e9abb-58e8-76fe-adea-b47a634e8881 | Context Fragmentation | Checkout | 85 | Building a complete picture of the checkout handler required reading 10 files across 5 directories | 30226 | 2476 | 152638 | 0.0052607408 | deepseek | deepseek-v4-flash | 2026-06-06T02:20:29.800Z\n```\n\n## Notes\n\n- Column names are **lowercase snake_case** throughout.\n- The `scope` column uses a capitalized business domain name, optionally with a parenthetical sub-scope (e.g. `Checkout(tests)`, `Checkout(db)`). No file paths or globs.\n- The `effort_pct` values across rows from the same feedback loop must sum to exactly 100.\n- The first line of the file is a header row matching the column names above.\n",
+        "x": 300,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "e2a9fa8fa8092b9c",
+        "type": "ui-chart",
+        "z": "a9a6010b932de479",
+        "group": "d078eeb9c190595d",
+        "name": "Effort / Scope plot",
+        "label": "chart",
+        "order": 1,
+        "chartType": "bar",
+        "category": "Module",
+        "categoryType": "str",
+        "xAxisLabel": "Scope",
+        "xAxisProperty": "scope",
+        "xAxisPropertyType": "property",
+        "xAxisType": "category",
+        "xAxisFormat": "",
+        "xAxisFormatType": "auto",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "Effort (% Tokens / Session)",
+        "yAxisProperty": "effort",
+        "yAxisPropertyType": "property",
+        "ymin": "0",
+        "ymax": "100",
+        "bins": 10,
+        "action": "replace",
+        "stackSeries": false,
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": true,
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "",
+        "colors": [
+            "#0095ff",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": 6,
+        "height": 8,
+        "className": "",
+        "interpolation": "linear",
+        "x": 820,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c818c0b3ae4fb231",
+        "type": "watch",
+        "z": "bdd14ed9aa832926",
+        "name": "watch mapfile",
+        "files": "/home/rodrigo/Documents/pvapi/.pi/MAP.csv",
+        "recursive": false,
+        "x": 700,
+        "y": 600,
+        "wires": [
+            [
+                "1b0db7fe25854f49"
+            ]
+        ]
+    },
+    {
+        "id": "1b0db7fe25854f49",
+        "type": "file in",
+        "z": "bdd14ed9aa832926",
+        "name": "Read mapfile",
+        "filename": "payload",
+        "filenameType": "msg",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "utf8",
+        "allProps": false,
+        "x": 920,
+        "y": 560,
+        "wires": [
+            [
+                "b17c1650379ce924"
+            ]
+        ]
+    },
+    {
+        "id": "b17c1650379ce924",
+        "type": "csv",
+        "z": "bdd14ed9aa832926",
+        "name": "",
+        "spec": "rfc",
+        "sep": "|",
+        "hdrin": true,
+        "hdrout": "none",
+        "multi": "mult",
+        "ret": "\\n",
+        "temp": "",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 950,
+        "y": 600,
+        "wires": [
+            [
+                "c86f043b3231da1b"
+            ]
+        ]
+    },
+    {
+        "id": "f19ed8b58a2ad559",
+        "type": "inject",
+        "z": "bdd14ed9aa832926",
+        "name": "Inject manual",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "/home/rodrigo/Documents/pvapi/.pi/MAP.csv",
+        "payloadType": "str",
+        "x": 700,
+        "y": 560,
+        "wires": [
+            [
+                "1b0db7fe25854f49"
+            ]
+        ]
+    },
+    {
+        "id": "a34625e4eabf05ca",
+        "type": "comment",
+        "z": "bdd14ed9aa832926",
+        "name": "Working directory",
+        "info": "## Format\n\nThe directory is still hard-coded for now\n",
+        "x": 690,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "8308ed459ce3a2f2",
+        "type": "subflow:a9a6010b932de479",
+        "z": "bdd14ed9aa832926",
+        "name": "Process data",
+        "x": 1100,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "c86f043b3231da1b",
+        "type": "split",
+        "z": "bdd14ed9aa832926",
+        "name": "",
+        "splt": "\\n",
+        "spltType": "str",
+        "arraySplt": 1,
+        "arraySpltType": "len",
+        "stream": false,
+        "addname": "",
+        "property": "payload",
+        "x": 950,
+        "y": 640,
+        "wires": [
+            [
+                "8308ed459ce3a2f2"
+            ]
+        ]
+    },
+    {
+        "id": "22d978574d3afa8c",
+        "type": "ui-button",
+        "z": "bdd14ed9aa832926",
+        "group": "d078eeb9c190595d",
+        "name": "Refresh",
+        "label": "Refresh data",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "emulateClick": false,
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "gesture-tap",
+        "iconPosition": "left",
+        "payload": "/home/rodrigo/Documents/pvapi/.pi/MAP.csv",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "buttonColor": "",
+        "textColor": "",
+        "iconColor": "",
+        "enableClick": true,
+        "enablePointerdown": false,
+        "pointerdownPayload": "",
+        "pointerdownPayloadType": "str",
+        "enablePointerup": false,
+        "pointerupPayload": "",
+        "pointerupPayloadType": "str",
+        "x": 720,
         "y": 520,
         "wires": [
             [
-                "bbb8bbb3d4a3df60",
-                "1dcbb80757e4b2fb"
+                "1b0db7fe25854f49"
             ]
         ]
     }
