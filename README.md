@@ -1,4 +1,4 @@
-Agent-Metrics
+AI Metrics
 =============
 
 AI agent metrics
